@@ -1,4 +1,4 @@
-name: Request Post Checks
+name: Request Checks
 
 on:
   workflow_dispatch:
