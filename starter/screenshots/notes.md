@@ -6,5 +6,9 @@
 ![Alt text](elastic_beanstalk_live.png)
 ## Examples
 ![Alt text](examples.png)
-## Live POST request
-![Alt text](live_post.png)
+## Live requests
+![Alt text](live_requests.png)
+## Browser GET
+![Alt text](browser_get.png)
+## Postman GET
+![Alt text](postman_get.png)
