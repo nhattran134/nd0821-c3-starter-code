@@ -1,1 +1,1 @@
-web: cd starter && gunicorn --bind 127.0.0.1:8000 --workers=1 --threads=15 main
+web: gunicorn main:app --workers=4 --worker-class=uvicorn.workers.UvicornWorker
