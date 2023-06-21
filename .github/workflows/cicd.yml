@@ -61,3 +61,4 @@ jobs:
         version_label: nd0821-${{ github.sha }}
         region: us-east-1
         deployment_package: starter/deploy.zip
+        use_existing_version_if_available: true
