@@ -12,7 +12,7 @@ def slice_metrics(model, data, slice_feature, categorical_features=[]):
 
     Inputs
     ------
-    model : any
+    model : Machine learning model
         Trained machine learning model.
     data : pd.DataFrame
         Dataframe containing the features and label.
@@ -28,7 +28,7 @@ def slice_metrics(model, data, slice_feature, categorical_features=[]):
     with open(os.path.join(os.path.dirname(__file__), "slice_output.txt"), "w") as f:
         sys.stdout = f
         print("Slicing data based on", slice_feature)
-        print("====================================")
+        print("************************************")
         X, y, _, _ = process_data(
             data, categorical_features=categorical_features, label="salary", training=True
         )
@@ -45,12 +45,17 @@ def slice_metrics(model, data, slice_feature, categorical_features=[]):
             print('-------------------------------------------------')
         sys.stdout = original_stdout
 
-
 if __name__ == '__main__':
     file_dir = os.path.dirname(__file__)
-    data = pd.read_csv(os.path.join(file_dir, '../data/clean_cencus.csv'))
+    data = pd.read_csv(os.path.join(file_dir, '../data/clean_census.csv'))
 
     model_path = os.path.join(file_dir, '../model/rf_model.pkl')
-    loaded_model = pickle.load(open(model_path, 'rb'))
+    model = pickle.load(open(model_path, 'rb'))
 
-    slice_metrics(loaded_model, data, 'education', categorical_features=cat_features)
+    encoder_path = os.path.join(file_dir, '../model/encoder.pkl')
+    encoder = pickle.load(open(encoder_path, 'rb'))
+
+    lb_path = os.path.join(file_dir, '../model/lb.pkl')
+    lb = pickle.load(open(lb_path, 'rb'))
+
+    slice_metrics(model, data, 'education', categorical_features=cat_features)
