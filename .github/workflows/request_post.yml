@@ -1,0 +1,15 @@
+name: Request Post Checks
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-health-check:
+    name: Running API Request Post Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v3
+      - run: python starter/request_post.py

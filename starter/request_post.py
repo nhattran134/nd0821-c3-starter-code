@@ -18,7 +18,7 @@ data = {
     "native_country": "India"
 }
 
-response = requests.post('http://localhost:5000/', data=json.dumps(data))
+response = requests.post('http://udacity-nd0821-prod.eba-misicvr9.us-east-1.elasticbeanstalk.com/', data=json.dumps(data))
 
 print(response.status_code)
 print(response.json())
